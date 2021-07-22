@@ -1,0 +1,9 @@
+package jdbc2.dao;
+/*
+ * 
+ * 封装了针对于数据表的通用操作
+ * 
+ */
+public class BaseDAO {
+
+}

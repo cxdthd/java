@@ -1,0 +1,9 @@
+package jdbc1.transaction;
+
+public class ConnectionTest {
+	
+	@Test
+	public void testGetConnection(){
+		JDBC
+	}
+}

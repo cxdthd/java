@@ -1,0 +1,48 @@
+package work;
+
+import java.util.Scanner;
+
+public class Test3 {
+	public static void main(String[] args) throws WeightException {
+		
+		InputWeight inputWeight = new InputWeight();
+		try {
+			inputWeight.getWeight(78);
+			inputWeight.getWeight(102);
+			inputWeight.getWeight(153);
+			inputWeight.getWeight(225);
+		} catch (WeightException e) {
+			System.out.println(e.warnMess());
+		}
+	}
+}
+
+
+class WeightException extends Exception{
+	static final long serialVersionUID = -7034897190745766939L;
+	String message;
+	
+	WeightException(int m){
+		message="体重为：" + m + "不符合要求";
+	}
+	
+	public String warnMess(){
+		return message;
+	}
+	
+}
+
+class InputWeight{
+	int weight;
+	
+	public void getWeight(int i) throws WeightException{
+		if (i < 70 || i >200){
+			throw new WeightException(i);
+		}
+		System.out.println("该学生的体重为：" + i);
+	}
+	public int getW(){
+		return weight;
+	}
+}
+

@@ -1,0 +1,18 @@
+package work;
+
+public class Teachar {
+	String name;
+	double salary;
+	public Teachar() {
+		super();
+	}
+	public Teachar(String name, double salary) {
+		super();
+		this.name = name;
+		this.salary = salary;
+	}
+	public void output() {
+		System.out.println("Teachar [name=" + name + ", salary=" + salary + "]");
+	}
+	
+}

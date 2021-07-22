@@ -1,0 +1,21 @@
+package java0;
+
+import org.junit.Test;
+
+public class ExceptionTest1 {
+	
+	@Test
+	public void test1(){
+		String str = "abc";
+		str = null;
+		try{
+		System.out.println(str.charAt(0));
+		System.out.println("hello-----1");
+		}catch(NumberFormatException e){
+			System.out.println("出现数值转换异常！！！");
+		}catch(NullPointerException e){
+			System.out.println("空指针异常！！！");
+		}
+		System.out.println("hello-----2");
+	}
+}

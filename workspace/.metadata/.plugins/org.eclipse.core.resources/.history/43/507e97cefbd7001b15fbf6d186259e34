@@ -1,0 +1,33 @@
+package jdbc5.dbutils;
+
+import java.sql.Connection;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import org.apache.commons.dbutils.QueryRunner;
+import org.junit.Test;
+
+import jdbc4.util.JDBCUtils;
+
+public class QueryRunnerTest {
+	
+	@Test
+	public void testInsert() throws Exception{
+		QueryRunner runner = new QueryRunner();
+		Connection connection = JDBCUtils.getDruidConnection();
+		String sql = "insert into customers(name,email,birth)values(?,?,?)";
+		int update = runner.update(connection, sql, "llxcc","llxcc@qq.com","1999-07-07");
+		if(update >0){
+			System.out.println("添加成功！");
+		}else{
+			System.out.println("添加失败！");
+		}
+	}
+
+}
+
+
+
+
+
+

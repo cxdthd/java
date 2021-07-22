@@ -1,0 +1,25 @@
+package jdbc5.dbutils;
+
+import java.sql.Connection;
+
+import org.apache.commons.dbutils.QueryRunner;
+import org.junit.Test;
+
+import jdbc4.util.JDBCUtils;
+
+public class QueryRunnerTest {
+	
+	@Test
+	public void testInsert(){
+		QueryRunner runner = new QueryRunner();
+		Connection connection = JDBCUtils.getDruidConnection();
+		runner.update(connection, sql, param);
+	}
+
+}
+
+
+
+
+
+

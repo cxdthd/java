@@ -1,0 +1,5 @@
+package jdbc4.connection;
+
+public class DruidTest {
+
+}

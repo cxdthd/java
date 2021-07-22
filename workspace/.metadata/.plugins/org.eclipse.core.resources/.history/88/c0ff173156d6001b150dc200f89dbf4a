@@ -1,0 +1,144 @@
+package jdbc2.dao.junit;
+
+import static org.junit.Assert.*;
+
+import java.sql.Connection;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.util.List;
+
+import org.junit.Test;
+
+import jdbc0.util.JDBCUtils;
+import jdbc2.bean.Customer;
+import jdbc2.dao.CustomerDAOImpl;
+
+public class CustomerDAOImplTest {
+	
+	CustomerDAOImpl dao = new CustomerDAOImpl();
+
+	@Test
+	public void testInsert() throws Exception {
+		Connection conn = null;
+		try {
+			conn = JDBCUtils.getConnection();
+			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+			long time = format.parse("1999-06-14").getTime();
+			Date birth = new Date(time);
+			Customer cust = new Customer(1, "cxdthd", "cxdthd@qq.com",birth);
+			dao.insert(conn, cust);
+			System.out.println("添加成功！");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			JDBCUtils.closeResource(conn, null);
+		}
+	}
+
+	@Test
+	public void testDeleteById() {
+		Connection conn = null;
+		try {
+			conn = JDBCUtils.getConnection();
+			
+			dao.deleteById(conn, 21);
+			
+			System.out.println("删除成功！");
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			JDBCUtils.closeResource(conn, null);
+		}
+	}
+
+	@Test
+	public void testUpdateConnectionCustomer() {
+		Connection conn = null;
+		try {
+			conn = JDBCUtils.getConnection();
+			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+			long time = format.parse("1999-06-14").getTime();
+			Date birth = new Date(time);
+			Customer cust = new Customer(22,"sss","sss@qq.com",birth);
+			dao.update(conn, cust);
+			System.out.println("修改成功！");
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			JDBCUtils.closeResource(conn, null);
+		}
+	}
+
+	@Test
+	public void testGetCustomerById() {
+		Connection conn = null;
+		try {
+			conn = JDBCUtils.getConnection();
+			
+			Customer customer = dao.getCustomerById(conn, 23);
+			System.out.println(customer);
+			
+			
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			JDBCUtils.closeResource(conn, null);
+		}
+	}
+
+	@Test
+	public void testGetAll() {
+		Connection conn = null;
+		try {
+			conn = JDBCUtils.getConnection();
+			
+			List<Customer> list = dao.getAll(conn);
+			list.forEach(System.out :: println);
+			
+			
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			JDBCUtils.closeResource(conn, null);
+		}
+	}
+
+	@Test
+	public void testGetCount() {
+		Connection conn = null;
+		try {
+			conn = JDBCUtils.getConnection();
+			
+			
+			
+			
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			JDBCUtils.closeResource(conn, null);
+		}
+	}
+
+	@Test
+	public void testGetMaxBirth() {
+		Connection conn = null;
+		try {
+			conn = JDBCUtils.getConnection();
+			
+			
+			
+			
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			JDBCUtils.closeResource(conn, null);
+		}
+	}
+
+}

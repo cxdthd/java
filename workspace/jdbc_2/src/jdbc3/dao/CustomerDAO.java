@@ -1,0 +1,87 @@
+package jdbc3.dao;
+
+import java.sql.Connection;
+import java.sql.Date;
+import java.util.List;
+
+import jdbc2.bean.Customer;
+
+/*
+ * 
+ * 此接口用于规范针对于customers表的常用操作
+ * 
+ */
+public interface CustomerDAO {
+	
+	
+	/**
+	 * 
+	* @Description 将cust对象添加到数据库中
+	* @author cxdthd
+	* @date 2021年6月26日下午2:47:13
+	* @param conn
+	* @param cust
+	 */
+	void insert(Connection conn,Customer cust);
+	
+	/**
+	 * 
+	* @Description 针对指定的id，删除表中的一条记录
+	* @author cxdthd
+	* @date 2021年6月26日下午2:48:15
+	* @param conn
+	* @param id
+	 */
+	void deleteById(Connection conn,int id);
+	
+	/**
+	 * 
+	* @Description 针对内存中的cust对象，去修改数据表中指定的记录
+	* @author cxdthd
+	* @date 2021年6月26日下午2:50:49
+	* @param conn
+	* @param cust
+	 */
+	void update(Connection conn,Customer cust);
+	
+	/**
+	 * 
+	* @Description 针对指定的id查询得到的Customer对象
+	* @author cxdthd
+	* @date 2021年6月26日下午2:52:02
+	* @param conn
+	* @param id
+	 */
+	Customer getCustomerById(Connection conn,int id);
+	
+	/**
+	 * 
+	* @Description 查询表中的所有记录构成的集和
+	* @author cxdthd
+	* @date 2021年6月26日下午2:54:33
+	* @param conn
+	* @return
+	 */
+	List<Customer> getAll(Connection conn);
+	
+	/**
+	 * 
+	* @Description 返回数据表中数据的条目数
+	* @author cxdthd
+	* @date 2021年6月26日下午2:58:31
+	* @param conn
+	* @return
+	 */
+	Long getCount(Connection conn);
+	
+	/**
+	 * 
+	* @Description 返回数据表中的最大生日
+	* @author cxdthd
+	* @date 2021年6月26日下午3:00:55
+	* @param conn
+	* @return
+	 */
+	Date getMaxBirth(Connection conn);
+}
+

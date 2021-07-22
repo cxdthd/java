@@ -1,0 +1,11 @@
+package jdbc1.transaction;
+
+import org.junit.Test;
+
+public class ConnectionTest {
+	
+	@Test
+	public void testGetConnection(){
+		
+	}
+}

@@ -1,0 +1,66 @@
+package jdbc5.dbutils;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanHandler;
+import org.junit.Test;
+
+import jdbc2.bean.Customer;
+import jdbc4.util.JDBCUtils;
+
+public class QueryRunnerTest {
+	
+	//测试插入
+	@Test
+	public void testInsert(){
+		Connection connection = null;
+		try {
+			QueryRunner runner = new QueryRunner();
+			connection = JDBCUtils.getDruidConnection();
+			String sql = "insert into customers(name,email,birth)values(?,?,?)";
+			int update = runner.update(connection, sql, "llxcc","llxcc@qq.com","1999-07-07");
+			if(update >0){
+				System.out.println("添加成功！");
+			}else{
+				System.out.println("添加失败！");
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			
+			JDBCUtils.closeResource(connection, null);
+		}
+		
+	}
+	
+	//测试查询
+	@Test
+	public void testQuery(){
+		Connection conn = null;
+		try {
+			QueryRunner runner = new QueryRunner();
+			conn = JDBCUtils.getDruidConnection();
+			String sql = "select id,name,email,birth from customers where id = ?";
+			//结果集的处理器
+			BeanHandler<Customer> handler = new BeanHandler<Customer>(Customer.class);
+			Customer customer = runner.query(conn, sql, handler, "12");
+			System.out.println(customer);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			JDBCUtils.closeResource(conn, null);
+		}
+	}
+
+}
+
+
+
+
+
+

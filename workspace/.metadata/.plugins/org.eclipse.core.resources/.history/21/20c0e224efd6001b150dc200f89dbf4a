@@ -1,0 +1,23 @@
+package jdbc4.util;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+
+import com.mchange.v2.c3p0.ComboPooledDataSource;
+
+public class JDBCUtils {
+	
+	/**
+	 * 
+	* @Description 使用C3P0的数据库连接池技术
+	* @author cxdthd
+	* @date 2021年6月27日上午10:21:58
+	* @return
+	* @throws SQLException
+	 */
+	public static Connection getConnection1() throws SQLException{
+		ComboPooledDataSource cpds = new ComboPooledDataSource("yangc3p0");  //读取配置文件
+		Connection connection = cpds.getConnection();
+		return connection;
+	}
+}

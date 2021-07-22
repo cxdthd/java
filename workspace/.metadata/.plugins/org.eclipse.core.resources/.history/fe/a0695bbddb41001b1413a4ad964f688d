@@ -1,0 +1,13 @@
+package java0;
+
+import org.junit.Test;
+
+public class ExceptionTest1 {
+	
+	@Test
+	public void test1(){
+		String str = "abc";
+		str = null;
+		System.out.println(str.charAt(0));
+	}
+}

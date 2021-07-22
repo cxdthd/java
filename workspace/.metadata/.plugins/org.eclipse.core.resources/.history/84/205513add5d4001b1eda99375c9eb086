@@ -1,0 +1,46 @@
+package jdbc5.blob;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+import org.junit.Test;
+
+import util.JDBCUtils;
+
+/**
+ * 
+* @Description 测试使用ProparedStatement操作Blob类型的数据
+* @author cxdthd Email:1752713908@qq.com
+* @version
+* @date 2021年6月24日下午5:36:31
+*
+ */
+public class BlobTest {
+	
+	//向数据表customers中插入Blob类型的字段
+	@Test
+	public void testInsert() throws Exception{
+		Connection connection = JDBCUtils.getConnection();
+		String sql = "insert into customers(name,email,birth,photo) values(?,?,?,?)";
+		PreparedStatement ps = connection.prepareStatement(sql);
+		
+		ps.setObject(1, "llx");
+		ps.setObject(2, "llx@qq.com");
+		ps.setObject(3, "1999-01-01");
+		
+		FileInputStream is = new FileInputStream(new File("llx.png"));
+
+		ps.setBinaryStream(4, is );
+		
+		ps.execute();
+		
+		JDBCUtils.closeResource(connection, ps);
+		is.close();
+		
+	}
+	
+}

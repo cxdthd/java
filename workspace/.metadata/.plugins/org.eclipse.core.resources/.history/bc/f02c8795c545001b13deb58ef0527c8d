@@ -1,0 +1,24 @@
+package service;
+
+import org.junit.Test;
+
+import domain.Employee;
+
+public class NameListService {
+	
+	private Employee[] employees;
+	
+	public void NameListService(){
+		
+	}
+	
+	public Employee[] getAllEmployees(){
+		return employees;
+	}
+
+	@Test
+	public void main(){
+		
+	}
+	
+}

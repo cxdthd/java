@@ -1,0 +1,67 @@
+package jdbc2.dao.junit;
+
+import static org.junit.Assert.*;
+
+import java.sql.Connection;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+
+import org.junit.Test;
+
+import jdbc0.util.JDBCUtils;
+import jdbc2.bean.Customer;
+import jdbc2.dao.CustomerDAOImpl;
+
+public class CustomerDAOImplTest {
+	
+	CustomerDAOImpl dao = new CustomerDAOImpl();
+
+	@Test
+	public void testInsert() throws Exception {
+		Connection conn = null;
+		try {
+			conn = JDBCUtils.getConnection();
+			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+			long time = format.parse("1999-06-14").getTime();
+			Date birth = new Date(time);
+			Customer cust = new Customer(1, "cxdthd", "cxdthd@qq.com",birth);
+			dao.insert(conn, cust);
+			System.out.println("添加成功！");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			JDBCUtils.closeResource(conn, null);
+		}
+	}
+
+	@Test
+	public void testDeleteById() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testUpdateConnectionCustomer() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testGetCustomerById() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testGetAll() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testGetCount() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testGetMaxBirth() {
+		fail("Not yet implemented");
+	}
+
+}

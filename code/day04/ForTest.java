@@ -1,0 +1,49 @@
+/*
+For循环结构的使用
+一、循环结构的4个要素
+①初始化条件
+②循环条件  --- > 是boolean类型
+③循环体
+④迭代条件
+二、for循环的结构
+for(①;②;④){
+	③
+}
+执行过程:	① - ② - ③ - ④ - ② - ③ - ④ ... - ② 不满足，循环结束
+
+
+*/
+class ForTest
+{
+	public static void main (String[] args)
+	{
+		
+		for (int i = 1;i <= 5 ;i++ )
+		{
+			System.out.println("Hello,World!");
+		}	
+		//i 只在for循环内有效，出了for循环就失效了
+
+		//练习
+		int num = 1;
+		for (System.out.print('a');num <= 3 ;System.out.print('c'),num++ )
+		{
+			System.out.print('b');
+		}
+		//输出结果：abcbcbc
+		
+		System.out.print("\n");
+
+		//例题：遍历100内所有偶数，并求他们的和,和偶数的个数
+		int sum = 0;
+		int count = 0;
+		for (int i = 2;i <= 100 ;i += 2 )
+		{
+			System.out.print(i + " ");
+			sum += i;
+			count ++;
+		}
+		System.out.println("\n" + "100以内所有偶数的和为：" + sum);
+		System.out.println("一百以内一共有" + count + "个偶数");
+	}
+}

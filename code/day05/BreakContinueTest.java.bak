@@ -1,0 +1,18 @@
+/*
+
+break和continue关键字的使用
+				使用范围			循环中使用的作用(不同点)		相同点
+break:			switch-case			
+				循环结构中			结束当前循环					关键字后面不能声明执行语句	
+
+continue:		循环结构中			结束当次循环					关键字后面不能声明执行语句
+
+
+*/
+class  BreakContinueTest
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("Hello World!");
+	}
+}

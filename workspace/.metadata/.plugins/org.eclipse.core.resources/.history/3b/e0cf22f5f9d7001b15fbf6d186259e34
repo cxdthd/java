@@ -1,0 +1,15 @@
+package jdbc5.dbutils;
+
+import org.apache.commons.dbutils.QueryRunner;
+import org.junit.Test;
+
+public class QueryRunnerTest {
+	
+	@Test
+	public void testInsert(){
+		QueryRunner runner = new QueryRunner();
+		
+		runner.update(sql)
+	}
+
+}

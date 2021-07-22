@@ -1,0 +1,5 @@
+package jdbc4.util;
+
+public class JDBCUtils {
+
+}

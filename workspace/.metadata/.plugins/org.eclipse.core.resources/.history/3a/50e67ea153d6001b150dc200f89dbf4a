@@ -1,0 +1,44 @@
+package jdbc2.dao.junit;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class CustomerDAOImplTest {
+
+	@Test
+	public void testInsert() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testDeleteById() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testUpdateConnectionCustomer() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testGetCustomerById() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testGetAll() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testGetCount() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testGetMaxBirth() {
+		fail("Not yet implemented");
+	}
+
+}
